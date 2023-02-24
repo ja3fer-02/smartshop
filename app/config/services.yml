@@ -1,0 +1,22 @@
+parameters:
+#    parameter_name: value
+          user_file_uploder: ModelBundle\FileUploader
+
+  
+services:
+
+      app.jwt_token_authenticator:
+              parent: lexik_jwt_authentication.security.guard.jwt_token_authenticator
+              class: ModelBundle\Security\Guard\JWTAuthenticator
+      
+      file_uploder_manager:
+              class: ModelBundle\FileUploader
+              arguments: ['%img_dir%']
+
+      app.doctrine_brochure_listener:
+              class: ModelBundle\EventListener\BrochureUploadListener
+              arguments: ['@file_uploder_manager','%img_dir%']
+              tags:
+                  - { name: doctrine.event_listener, event: prePersist }
+                  - { name: doctrine.event_listener, event: preUpdate }
+                  - { name: doctrine.event_listener, event: postPersist }

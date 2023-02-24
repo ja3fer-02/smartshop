@@ -1,0 +1,19 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 8889
+    database_name: smarty
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: smtp.gmail.com
+    mailer_user: contact.smartyapp@gmail.com
+    mailer_password: smartyapp
+    img_dir: '%Kernel.root_dir%/../web/img'
+    secret: 04cdaf0c196e76883b0b068a767bbeba75be73bf
+    
+    # Jwt parametres
+    jwt_private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
+    jwt_public_key_path: '%kernel.root_dir%/../var/jwt/public.pem'
+    jwt_key_pass_phrase: aaaa
+    jwt_token_ttl: 3600
